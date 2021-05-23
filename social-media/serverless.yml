@@ -1,0 +1,24 @@
+
+# Serverless configuration
+# for 'Social Media Image API'
+# Created on: 3-11-2020
+# Created by: Kai Huebner
+
+service: social-media
+
+frameworkVersion: "1"
+
+provider:
+  name: aws
+  profile: ls
+  runtime: python3.8
+  region: us-east-1
+
+functions:
+  api:
+    handler: handler.api
+    events:
+      - http:
+          path: cities
+          method: post
+          cors: true
